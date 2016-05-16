@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Bvy_Layer>
+            <version>0.0.1</version>
+        </Bvy_Layer>
+    </modules>
+    <global>
+        <models>
+            <bvy_layer>
+                <class>Bvy_Layer_Model</class>
+            </bvy_layer>
+        </models>
+        <blocks>
+
+                <catalog>
+                    <rewrite>
+                        <layer_view>Bvy_Layer_Block_Layer_View</layer_view>
+                    </rewrite>
+                </catalog>
+
+            <bvy_layer>
+                <class>Bvy_Layer_Block</class>
+            </bvy_layer>
+        </blocks>
+        <helpers>
+            <bvy_layer>
+                <class>Bvy_Layer_Helper</class>
+            </bvy_layer>
+        </helpers>
+    </global>
+
+
+    <frontend>
+
+        <routers>
+            <layer>
+                <use>standard</use>
+                <args>
+                    <module>Bvy_Layer</module>
+                    <frontName>layer</frontName>
+                </args>
+            </layer>
+        </routers>
+        <layout>
+            <updates>
+                <bvy_layer>
+                    <file>bvy_layer.xml</file>
+                </bvy_layer>
+            </updates>
+        </layout>
+
+    </frontend>
+</config>
+
+

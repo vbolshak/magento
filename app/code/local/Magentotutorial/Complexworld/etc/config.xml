@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Modules>
+        <Magentotutorial_Complexworld>
+            <version>0.1.0</version>
+        </Magentotutorial_Complexworld>
+    </Modules>
+    <frontend>
+        <routers>
+            <complexworld>
+                <use>standard</use>
+                <args>
+                    <module>Magentotutorial_Complexworld</module>
+                    <frontName>complexworld</frontName>
+                </args>
+            </complexworld>
+        </routers>
+    </frontend>
+
+
+    <global>
+        <models>
+            <complexworld>
+                <class>Magentotutorial_Complexworld_Model</class>
+
+            </complexworld>
+
+
+        </models>
+
+
+
+
+    </global>
+
+</config>

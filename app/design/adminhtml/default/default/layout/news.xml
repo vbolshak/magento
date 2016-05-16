@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_news_index>
+        <reference name="content">
+            <block type="news/adminhtml_news_news" name="news">
+            </block>
+        </reference>
+    </adminhtml_news_index>
+
+    <adminhtml_news_new>
+
+        <update handle = 'adminhtml_news_edit' />
+
+    </adminhtml_news_new>
+
+    <adminhtml_news_edit>
+
+        <reference name="content">
+            <block type="news/adminhtml_form_edit" name="adminform"/>
+        </reference>
+        <reference name="left">
+            <block type="news/adminhtml_form_edit_tabs" name="adminform_tabs"/>
+        </reference>
+
+    </adminhtml_news_edit>
+
+    <adminhtml_news_products>
+
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="news/adminhtml_form_edit_tab_productgrid" name="news.tab.products.grid"/>
+            <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+                <reference name="grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>news.tab.products.grid</grid_block_name>
+                        <data_callback>getSelectedProducts</data_callback>
+                       <!-- <hidden_input_name>product_id</hidden_input_name>  в грид
+                         добавится скрытое поле product_id  которые мы сможем затем получить в посте  -->
+                        <hidden_input_name>product</hidden_input_name>
+                        <reload_param_name>products_list</reload_param_name>
+                    </action>
+
+                </reference>
+            </block>
+        </block>
+
+    </adminhtml_news_products>
+
+
+
+    <adminhtml_news_productgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="news/adminhtml_form_edit_tab_productgrid" name="news.tab.products.grid"/>
+        </block>
+    </adminhtml_news_productgrid>
+
+
+
+</layout>

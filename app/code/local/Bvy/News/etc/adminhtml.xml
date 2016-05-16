@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+<menu>  <!-- Добавляем в главное меню-->
+    <bvy_news translate="title" module="news"> <!--bvy_news  указывается произвольное название module='news'  указывается имя тега хелпера  -->
+        <title>BVY news</title>
+        <sort_order>1</sort_order>
+        <children>
+            <news>
+                <title>Configure news</title>
+                <sort_order>1</sort_order>
+                <action>adminhtml/news/index</action>  <!--здесь указывается сначала adminhtml/потом имя контроллера и экшена -->
+            </news>
+
+        </children>
+    </bvy_news>
+</menu>
+<acl>
+    <resources>
+         <admin>
+
+              <children>
+                  <bvy_news>
+                      <title>BVY news top level</title>
+
+                      <children>
+                           <bvy_news translate="title" module="news">
+                               <title>bvy_news menu item</title>
+                               <sort_order>1</sort_order>
+                           </bvy_news>
+                      </children>
+                  </bvy_news>
+                  <system>
+                      <children>
+                          <config>
+                              <children>
+                                  <bvy_news_tab>   <!-- здесь ссылаемся на табу, которую мы создали-->
+                                      <title>Configure news</title> <!-- Used in resources tree -->
+                                  </bvy_news_tab>
+                              </children>
+                          </config>
+                      </children>
+                  </system>
+              </children>
+         </admin>
+    </resources>
+</acl>
+
+</config>

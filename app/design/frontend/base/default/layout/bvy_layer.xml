@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+<layer_index_index>
+
+    <reference name="head">
+        <action method="setTitle">
+            <title>Product list</title>
+        </action>
+    </reference>
+
+
+
+    <remove name="top.search" />
+
+    <reference name="root">
+        <action method="setTemplate">
+            <template>page/1column.phtml</template>
+        </action>
+    </reference>
+
+    <reference name="content">
+        <!-- Add product list to content -->
+
+
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager">
+
+                </block>
+
+            </block>
+
+            <action method="setCollection">
+                <value helper="bvy_layer/getProductCollection"></value>
+            </action>
+            <action method="setAvailableLimit">
+                <value>
+                    <arg>
+                        <key1>5</key1>
+                        <key2>10</key2>
+                        <key3>15</key3>
+                        <key3>20</key3>
+                    </arg>
+                </value>
+            </action>
+            <action method="setColumnCount"><value>6</value></action>
+        </block>
+
+        <!--<block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">-->
+            <!--&lt;!&ndash; Add toolbar to product list &ndash;&gt;-->
+            <!--<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">-->
+                <!--&lt;!&ndash; Add pager to toolbar &ndash;&gt;-->
+                <!--<block type="page/html_pager" name="product_list_toolbar_pager"/>-->
+            <!--</block>-->
+
+            <!--&lt;!&ndash; Specify toolbar block name &ndash;&gt;-->
+            <!--<action method="setToolbarBlockName">-->
+                <!--<name>product_list_toolbar</name>-->
+            <!--</action>-->
+
+            <!--&lt;!&ndash; Use custom product collection &ndash;&gt;-->
+            <!--<action method="setCollection">-->
+                <!--<value helper="bvy_layer/getProductCollection" />-->
+            <!--</action>-->
+
+            <!--&lt;!&ndash; Use custom available sort by orders &ndash;&gt;-->
+            <!--<action method="setAvailableOrders">-->
+                <!--<value helper="bvy_layer/getAvailableOrders" />-->
+            <!--</action>-->
+
+            <!--&lt;!&ndash; Set the default sort by order &ndash;&gt;-->
+            <!--<action method="setSortBy">-->
+                <!--<value>price</value>-->
+            <!--</action>-->
+
+            <!--&lt;!&ndash; Set default direction to ascending &ndash;&gt;-->
+            <!--<action method="setDefaultDirection">-->
+                <!--<value>asc</value>-->
+            <!--</action>-->
+
+            <!--<action method="setColumnCount">-->
+                <!--<coulumn>5</coulumn>-->
+            <!--</action>-->
+        <!--</block>-->
+    </reference>
+
+    <reference name="footer">
+        <!--<block type="cms/block" name="vetal" template="vetal.phtml"></block>-->
+        <block type="cms/block" name="vetal" >
+            <action method="setBlockId"><block_id>vetal</block_id></action>
+        </block>
+    </reference>
+
+</layer_index_index>
+
+
+
+
+
+</layout>

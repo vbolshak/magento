@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>  <!-- -теги обязательно должны быть мальеними буквами иначе скрипт инстал не запустится-->
+        <Alanstormdotcom_Complexworld>
+            <version>0.0.1</version>
+        </Alanstormdotcom_Complexworld>
+    </modules>
+
+
+    <frontend>
+        <routers>
+            <complexworld>
+                <use>standard</use>
+                <args>
+                    <module>Alanstormdotcom_Complexworld</module>
+                    <frontName>complexworld</frontName>
+                </args>
+            </complexworld>
+        </routers>
+
+    </frontend>
+
+    <global>
+
+        <models>
+            <complexworld>
+                <class>Alanstormdotcom_Complexworld_Model</class>
+                <resourceModel>complexworld_resource_eav_mysql4</resourceModel>
+            </complexworld>
+
+            <complexworld_resource_eav_mysql4>
+                <class>Alanstormdotcom_Complexworld_Model_Resource_Eav_Mysql4</class>
+                <entities>
+                    <eavblogpost>
+                        <table>eavblog_posts</table>
+                    </eavblogpost>
+                </entities>
+            </complexworld_resource_eav_mysql4>
+
+        </models>
+
+        <resources>
+            <complexworld_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </complexworld_write>
+            <complexworld_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </complexworld_read>
+            <complexworld_setup>
+                <setup>
+                    <module>Alanstormdotcom_Complexworld</module>
+                    <class>Alanstormdotcom_Complexworld_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </complexworld_setup>
+
+        </resources>
+    </global>
+
+
+</config>

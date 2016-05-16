@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>  <!-- -теги обязательно должны быть мальеними буквами иначе скрипт инстал не запустится-->
+        <Bvy_News>
+            <version>0.0.</version>
+        </Bvy_News>
+    </modules>
+
+
+    <frontend>
+        <routers>
+            <news> <!--это будет начальное имя хендла -->
+                <use>standard</use>
+                <args>
+                    <module>Bvy_News</module>
+                    <frontName>news</frontName>
+                </args>
+            </news>
+        </routers>
+        <layout>
+            <updates>
+                <news>  <!--пишется произвольное имя лаяута -->
+                    <file>news.xml</file>
+                </news>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <blocks>
+            <news>
+                <class>Bvy_News_Block</class>
+            </news>
+        </blocks>
+        <helpers>
+             <news>   <!-- Указывается имя хелпера  -->
+                   <class>Bvy_News_Helper</class>
+             </news>
+        </helpers>
+        <models>
+            <bvy_news>
+                <class>Bvy_News_Model</class>
+                <resourceModel>bvy_news_resource</resourceModel>
+            </bvy_news>
+            <bvy_news_resource>
+                <class>Bvy_News_Model_Resource</class>
+                <entities>
+                    <news>
+                        <table>bvy_news</table>
+                    </news>
+                </entities>
+            </bvy_news_resource>
+        </models>
+        <resources>
+            <bvy_news_setup>   <!-- Должно совпадать с именем папки в /sql/bvy_news_setup  -->
+                <setup>
+                    <module>Bvy_News</module>  <!-- указывается имя модуля. регистр важен -->
+                    <class>Bvy_News_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bvy_news_setup>
+            <news_setup>
+                <setup>
+                    <module>Bvy_News</module>
+                    <class>Bvy_News_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </news_setup>
+
+            <news_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </news_write>
+            <news_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </news_read>
+        </resources>
+
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <bvy_news after="Mage_Adminhtml">Bvy_News_Adminhtml</bvy_news> <!--bvy  произвольное имя. Внутри указывается имя класса -->
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <bvy_news> <!-- пишем произвольное имя-->
+                    <file>news.xml</file>
+                </bvy_news>
+            </updates>
+        </layout>
+
+    </adminhtml>
+
+    <default>    <!-- в этой секции устанавливаем дефолтные значения для табы-->
+        <bvy_news>
+            <general>
+                <text_field>Default value</text_field>
+                <textarea></textarea>
+                <dropdown>key2</dropdown>
+                <multiple_dropdown>key1,key2</multiple_dropdown>
+                <time>11,30,45</time>
+                <active>0</active>
+                <boolean>1</boolean>
+                <dependant_text_field>Default value</dependant_text_field>
+            </general>
+        </bvy_news>
+    </default>
+
+</config>

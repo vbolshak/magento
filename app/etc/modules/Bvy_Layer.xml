@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Bvy_Layer>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bvy_Layer>
+    </modules>
+
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+
+
+        <form_index_index>
+            <reference name="root">
+                <action method="setTemplate">
+                    <template>page/1column.phtml</template>
+                </action>
+            </reference>
+            <reference name="content">
+                <block type="bvy_form/form" name ="bvy.form" template="bvy_form.phtml">
+
+              </block>
+            </reference>
+        </form_index_index>
+
+
+
+</layout>

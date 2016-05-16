@@ -1,0 +1,30 @@
+<?php
+
+foreach ($this->getNewsCollection() as $news ) :
+    if ($news->getStatus()) :?>
+
+
+
+        <h1><a href="<?php echo Mage::getBaseUrl().'news/view/view?id='. $news->getNewsId()?>"><?php echo $news->getTitul() ?></a></h1>
+
+        <?php if ($news->getTezis()) : ?>
+
+                 <h3><?php  echo $news->getTezis(); ?></h3>
+
+        <?php else : ?>
+
+                 <h3><?php  echo substr($news->getText(), 0, 150); ?></h3>
+
+        <?php  endif;?>
+
+        <p><?php echo $news->getText() ?></p>
+
+
+<?php
+    endif;
+endforeach ?>
+
+<?php
+//добавим вывод пейждера . Вызываем метод который определелили в блоке
+echo $this->getPagerHtml(); ?>
+

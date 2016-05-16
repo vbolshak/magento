@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alanstormdotcom_Configviewer>
+            <version>0.1.0</version>
+        </Alanstormdotcom_Configviewer>
+    </modules>
+    <frontend>
+        <routers>
+            <helo>
+                <use>standard</use>
+                <args>
+                    <module>Alanstormdotcom_Configviewer</module>
+                    <frontName>hello</frontName>
+                </args>
+            </helo>
+        </routers>
+    </frontend>
+
+    <global>
+            <events>
+                <controller_front_init_routers>
+                    <observers>
+                        <alanstormdotcom_configviewer_model_observer>
+                            <type>singleton</type>
+                            <class>Alanstormdotcom_Configviewer_Model_Observer</class>
+                            <method>checkForConfigRequest</method>
+                        </alanstormdotcom_configviewer_model_observer>
+                    </observers>
+                </controller_front_init_routers>
+            </events>
+        <helpers>
+            <alan>
+                <class>Alanstormdotcom_Configviewer_Helpers</class>
+            </alan>
+        </helpers>
+    </global>
+
+</config>

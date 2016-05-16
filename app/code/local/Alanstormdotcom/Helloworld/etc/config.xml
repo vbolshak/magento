@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Modules>
+        <Alanstormdotcom_Heloworld>
+            <version>0.1.0</version>
+        </Alanstormdotcom_Heloworld>
+    </Modules>
+    <frontend>
+        <routers>
+            <helloworld>
+                <use>standard</use>
+                <args>
+                    <module>Alanstormdotcom_Helloworld</module>
+                    <frontName>helloworld</frontName>
+                </args>
+            </helloworld>
+        </routers>
+    </frontend>
+
+
+</config>

@@ -1,0 +1,10 @@
+<?php
+$news =  $this->getSingleNews(); ?>
+
+<?php if ($news->getData()) :  ?>
+        <h1><?php echo $news->getTitle() ; ?></h1>
+        <p><?php echo $news->getText(); ?></p>
+
+<?php  else :?>
+    <?php echo "No news"; ?>
+<?php endif; ?>

@@ -1,0 +1,44 @@
+<h1>ddd</h1>
+<?php
+echo "dytrue";
+
+?>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#rezult-title').click(function(){
+            var perem1 = jQuery('input[name=comment]').val();
+            jQuery.ajax({
+                method: "POST",
+                url : 'index/sendajax',
+                data : { name : 'fff', email:'d@uud', comment: 'ddd'},
+                success: function(data){
+                   var g = JSON.parse(data);
+                   show(g);
+                }
+
+            } );
+        });
+    })
+
+
+
+    function show(rexponse) {
+      if (rexponse){
+          jQuery("#form").hide();
+          alert(rexponse.text);}
+    }
+</script>
+<div id="form">
+<form id="contact.form" method="post" action="form/index/sendemail">
+    <input type='text' name="comment" id="comment">
+    <input type='text' name="name">
+    <input type='email' name="email">
+
+    <input type="submit" value="send mail">
+</form>
+</div>
+<br>
+<hr>
+<h1 id='rezult-title' style="color: #008800; font: 100;">rezult</h1>
+<h2 id="rezult"></h2>

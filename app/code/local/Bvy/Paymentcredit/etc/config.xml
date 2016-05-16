@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>  <!-- -теги обязательно должны быть мальеними буквами иначе скрипт инстал не запустится-->
+        <Bvy_Paymentcredit>
+            <version>0.0.3</version>
+        </Bvy_Paymentcredit>
+    </modules>
+
+
+
+    <global>
+        <blocks>
+            <bvy_paymentcredit>
+                 <class>Bvy_Paymentcredit_Block</class>
+            </bvy_paymentcredit>
+        </blocks>
+
+        <models>
+            <bvy_paymentcredit>
+                <class>Bvy_Paymentcredit_Model</class>
+                <resourceModel>bvy_paymentcredit_resource</resourceModel>
+            </bvy_paymentcredit>
+
+
+            <bvy_paymentcredit_resource>
+                <class>Bvy_Paymentcredit_Model_Resource</class>
+                <entities>
+                    <paymenthistory>
+                        <table>bvy_paymenthistory</table>
+                    </paymenthistory>
+                </entities>
+            </bvy_paymentcredit_resource>
+
+
+
+
+        </models>
+        <helpers>
+            <bvy_paymentcredit>   <!-- Указывается имя хелпера  -->
+                <class>Bvy_Paymentcredit_Helper</class>
+            </bvy_paymentcredit>
+        </helpers>
+        <resources>
+            <bvy_paymentcredit_setup>
+                <setup>
+                    <module>Bvy_Paymentcredit</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </bvy_paymentcredit_setup>
+            <bvy_paymentcredit_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bvy_paymentcredit_write>
+            <bvy_paymentcredit_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bvy_paymentcredit_read>
+
+        </resources>
+
+        <fieldsets>
+            <sales_convert_quote_payment>
+                <comment>
+                    <to_order_payment>*</to_order_payment>
+                </comment>
+            </sales_convert_quote_payment>
+        </fieldsets>
+
+        <events>
+                <core_block_abstract_prepare_layout_after>
+                    <observers>
+                        <bvy_paymentcredit_observer>
+                            <type>singleton</type>
+                            <class>Bvy_paymentcredit_Model_Observer</class>
+                            <method>injectTabs</method>
+                        </bvy_paymentcredit_observer>
+                    </observers>
+                </core_block_abstract_prepare_layout_after>
+        </events>
+
+
+    </global>
+
+
+
+    <frontend>
+        <events>
+            <customer_register_success>
+                <observers>
+                    <bvy_paymentcredit_observer>
+                        <class>bvy_paymentcredit_model_observer</class>
+                        <method>addDefaultCredit</method>
+                    </bvy_paymentcredit_observer>
+                </observers>
+            </customer_register_success>
+            <sales_order_place_after>
+                <observers>
+                    <bvy_paymentdebit>
+                        <class>bvy_paymentcredit_model_observer</class>
+                        <method>deductCreditBalanse</method>
+                    </bvy_paymentdebit>
+                </observers>
+            </sales_order_place_after>
+    </events>
+
+
+    </frontend>
+
+    <default>
+
+        <payment>
+
+            <paymentcredit>
+
+                <active>1</active>
+                <model>bvy_paymentcredit/paymentcredit</model> <!-- нужно указать класс модели шиппинга-->
+                <sort_order>10</sort_order>
+                <title>bvy credit payment method</title>
+            </paymentcredit>
+
+        </payment>
+
+    </default>
+
+
+    <admin>
+        <routers>
+            <adminhtml>
+                   <args>
+                            <modules>
+                                <bvy_paymentcredit before = "Mage_Adminhtml">Bvy_Paymentcredit_Adminhtml</bvy_paymentcredit>
+                            </modules>
+                   </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+
+</config>

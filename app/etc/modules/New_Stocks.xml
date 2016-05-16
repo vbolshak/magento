@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <New_Stocks>
+            <active>true</active>
+            <codePool>local</codePool>
+        </New_Stocks>
+    </modules>
+
+</config>

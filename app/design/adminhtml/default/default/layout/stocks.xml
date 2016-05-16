@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+
+<layout>
+    <adminhtml_stocks_index>
+        <reference name="content">
+            <!-- grid container-->
+            <block type="stocks/adminhtml_stocks" name="stocks"></block>
+        </reference>
+    </adminhtml_stocks_index>
+       
+    <adminhtml_stocks_new>
+         <update handle="adminhtml_stocks_edit"/>
+    </adminhtml_stocks_new>
+  
+    <adminhtml_stocks_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="stocks/adminhtml_stocks_edit" name="stocks_edit" />
+        </reference>
+        
+         <reference name="left">
+            <block type="stocks/adminhtml_stocks_edit_tabs" name="stocks_edit_tabs">
+                <block type="stocks/adminhtml_stocks_edit_tab_main" name="stocks_edit_tab_main" />
+
+                
+                <action method="addTab"><name>main_section</name><block>stocks_edit_tab_main</block></action>
+                
+                
+            </block>
+        </reference>
+    </adminhtml_stocks_edit>
+    
+    <adminhtml_stocks_products>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="stocks/adminhtml_stocks_edit_tab_content" name="stocks.edit.tab.content"/>
+            <block type="adminhtml/widget_grid_serializer" name="stocks_grid_serializer">
+                <reference name="stocks_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>stocks.edit.tab.content</grid_block_name>
+                        <data_callback>getSelectedProducts</data_callback>
+                        <hidden_input_name>product_id</hidden_input_name>
+                        <!-- products_list   это параметр, который будет использоваться в контроллере и гриде-->
+                        <reload_param_name>products_list</reload_param_name>
+                    </action>
+<!--                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>-->
+                </reference>
+            </block>
+        </block>
+    </adminhtml_stocks_products>
+
+    <adminhtml_stocks_productgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="stocks/adminhtml_stocks_edit_tab_content" name="stocks.edit.tab.content"/>
+        </block>
+    </adminhtml_stocks_productgrid>
+
+</layout>
+

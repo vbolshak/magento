@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Bvy_Paymentcredit>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bvy_Paymentcredit>
+    </modules>
+
+</config>

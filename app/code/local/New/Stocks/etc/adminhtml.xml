@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<config> 
+    <menu>
+        <stocks module="stocks">
+                <title>Stocks</title>
+                <sort_order>90</sort_order>
+                   <!-- This is the URL of what we want the menu item to link to -->
+                <action>adminhtml/stocks</action>
+        </stocks>
+    </menu>
+    
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <stocks translate="title" module="stocks">
+                                        <title>Stocks Section</title>
+                                    </stocks>
+                                    
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    
+</config>

@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Bvy_Shipping>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bvy_Shipping>
+    </modules>
+
+</config>

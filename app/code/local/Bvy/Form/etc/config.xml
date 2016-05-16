@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>  <!-- -теги обязательно должны быть мальеними буквами иначе скрипт инстал не запустится-->
+        <Bvy_Form>
+            <version>0.0.1</version>
+        </Bvy_Form>
+    </modules>
+
+
+    <frontend>
+        <routers>
+            <form> <!--это будет начальное имя хендла -->
+                <use>standard</use>
+                <args>
+                    <module>Bvy_Form</module>
+                    <frontName>form</frontName>
+                </args>
+            </form>
+        </routers>
+        <layout>
+            <updates>
+                <form>  <!--пишется произвольное имя лаяута -->
+                    <file>bvy_form.xml</file>
+                </form>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <blocks>
+            <bvy_form>
+                <class>Bvy_Form_Block</class>
+            </bvy_form>
+        </blocks>
+        <!--<helpers>-->
+             <!--<news>   &lt;!&ndash; Указывается имя хелпера  &ndash;&gt;-->
+                   <!--<class>Bvy_News_Helper</class>-->
+             <!--</news>-->
+        <!--</helpers>-->
+        <!--<models>-->
+            <!--<bvy_news>-->
+                <!--<class>Bvy_News_Model</class>-->
+                <!--<resourceModel>bvy_news_resource</resourceModel>-->
+            <!--</bvy_news>-->
+            <!--<bvy_news_resource>-->
+                <!--<class>Bvy_News_Model_Resource</class>-->
+                <!--<entities>-->
+                    <!--<news>-->
+                        <!--<table>bvy_news</table>-->
+                    <!--</news>-->
+                <!--</entities>-->
+            <!--</bvy_news_resource>-->
+        <!--</models>-->
+        <!--<resources>-->
+            <!--<bvy_news_setup>   &lt;!&ndash; Должно совпадать с именем папки в /sql/bvy_news_setup  &ndash;&gt;-->
+                <!--<setup>-->
+                    <!--<module>Bvy_News</module>  &lt;!&ndash; указывается имя модуля. регистр важен &ndash;&gt;-->
+                    <!--<class>Bvy_News_Model_Resource_Mysql4_Setup</class>-->
+                <!--</setup>-->
+                <!--<connection>-->
+                    <!--<use>core_setup</use>-->
+                <!--</connection>-->
+            <!--</bvy_news_setup>-->
+            <!--<news_setup>-->
+                <!--<setup>-->
+                    <!--<module>Bvy_News</module>-->
+                    <!--<class>Bvy_News_Model_Resource_Eav_Mysql4_Setup</class>-->
+                <!--</setup>-->
+
+                <!--<connection>-->
+                    <!--<use>core_setup</use>-->
+                <!--</connection>-->
+            <!--</news_setup>-->
+
+            <!--<news_write>-->
+                <!--<connection>-->
+                    <!--<use>core_write</use>-->
+                <!--</connection>-->
+            <!--</news_write>-->
+            <!--<news_read>-->
+                <!--<connection>-->
+                    <!--<use>core_read</use>-->
+                <!--</connection>-->
+            <!--</news_read>-->
+        <!--</resources>-->
+
+    </global>
+
+
+
+</config>

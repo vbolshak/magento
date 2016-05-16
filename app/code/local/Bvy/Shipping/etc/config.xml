@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>  <!-- -теги обязательно должны быть мальеними буквами иначе скрипт инстал не запустится-->
+        <Bvy_Shipping>
+            <version>0.0.1</version>
+        </Bvy_Shipping>
+    </modules>
+
+
+
+
+    <global>
+        <!--<blocks>-->
+            <!--<news>-->
+                <!--<class>Bvy_News_Block</class>-->
+            <!--</news>-->
+        <!--</blocks>-->
+        <helpers>
+             <bvy_shipping>   <!-- Указывается имя хелпера  -->
+                   <class>Bvy_Shipping_Helper</class>
+             </bvy_shipping>
+        </helpers>
+        <models>
+            <bvy_shipping>
+                <class>Bvy_Shipping_Model</class>
+
+            </bvy_shipping>
+
+        </models>
+
+
+    </global>
+
+
+    <default>
+        <carriers>
+            <bvy_shipping>
+                <active>1</active>
+                <model>bvy_shipping/carrier</model> <!-- нужно указать класс модели шиппинга-->
+                <title>bvy shipping carrier</title>   <!-- это имя высветится во фронте-->
+                <sort_order>10</sort_order>
+                <sallowspecific>0</sallowspecific>
+                <express_max_weight>1</express_max_weight>
+            </bvy_shipping>
+        </carriers>
+
+    </default>
+
+</config>

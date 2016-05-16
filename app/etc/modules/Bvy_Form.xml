@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Bvy_Form>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bvy_Form>
+    </modules>
+
+</config>
